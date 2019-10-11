@@ -1,0 +1,119 @@
+
+Site name candidates:
+  Trust Network
+  Trust Judges
+  Trust Judgments ** (domain acquired: org and com)
+  Trust Winners * (domain acquired: org and com)
+  Winning Trust *** (.Org acquired, .Com owned by squatter)
+  TrustPays  (org taken by crime stopper site)
+  Earning Trust *** (.Org acquired, .Com is an investment firm)
+  Trust Rewards *** (.Org acquired, .Com is an empty website)
+  Rewarding Trust *** (domain acquired: org and com)
+  Trust.who *** (domain owned by someone, not used)
+
+Headpin: college students rating trustworthiness of professors and the school itself
+
+Workbench
+  if width > n, component = WideLayout, else component = ThinLayout (width checks combined)
+  Look at url to decide current inner component
+WideLayout
+  WideBanner
+  WideLeft (contains UserStatus)
+  WideCenter component via prop eg Inbox
+  WideRight (display:none if width < M, inside is Empty, else NewsAndFeeds)
+  WideFooter
+
+Signup { see signup.txt }
+Login { see login.txt }
+After login: cell phone
+  Banner: DG Team  Home icon <Parent  Current topic   Search icon More icon(?)
+  Initial: Home (menulist on phone, tabs on desktop/tablet) /home
+    My Work (I:#, P:#, T:#/#, L:#, R:#) /mywork
+    Learn /learn
+    Evidence /evidence
+    Judge /judge
+    More /home/more
+  My Work (menulist on mobile, second-level tabs on desktop/tablet)
+    "Inbox" with badge showing #notifications /inbox
+      Includes notifications of events relating to your work, announcements, ads from trusted sponsors
+    "Profile" (with warning icon and rating of completeness) /profile
+    Trustworthiness icon (with two numbers)
+    "Level" with one number
+    "Rewards" with one number
+After login: desktop/tablet
+  Banner: DG Team  Headshot(logout)
+    DGicon(link to site home page) Team
+  Wide column
+    left-side: user info
+      Profile /profile
+        (with indication of completeness, perhaps percentile number of entries and judgments average)
+        (see data structures below)
+      Trustworthiness icon (with two numbers) /trustworthiness
+        Click here and instructions and clickables about improving your score
+      "Level" with one number /level
+      "Rewards" with one number /rewards
+    Middle holds main content, as long flow, with Menubar at top
+      Left and middle Menubar act as a combined l-shaped tab menu
+    right side content: social media feeds
+      only appears if screen is wide enough
+  Menubar (words under icons, operates as tab menu)
+    Inbox (with badge for notifications) /inbox
+    Learn /learn
+    Evidence /evidence
+    Judge /judge
+    Search icon /search
+    More icon(about, tour, settings) /about, /tour, /settings
+  Inbox with badge showing #notifications
+    Open initially
+    Includes notifications of events relating to your work, announcements, ads from trusted sponsors
+  Learn
+    Importance of learning, with more button
+    Courses completed
+    Recommended next courses
+    Go to Learning Center
+  Add to
+    ?
+  Judge
+    ?
+
+user / entity { // stored in entity tables?
+  id
+  isOrganization
+  email
+  firstName
+  lastName
+  profile {
+    emails []
+    urls []
+    social []
+    bio
+    residences []
+    education []
+    employment []
+    activities []
+    affiliations []
+    publications [{ // books, audio, visual, knews, magazines, podcasts, etc
+      title
+      authors []
+      publisher
+      year
+      urls []
+      summary
+      notes
+    }]
+    trustworthinessClaims []
+    trustworthinessDeviations []
+  }
+  judgmentsBy []
+  judgmentsOn []
+  researchBy []
+  researchOn []
+  commentsBy []
+  commentsOn []
+  trustworthiness {
+    score
+    confidence
+  }
+  level
+  training
+}

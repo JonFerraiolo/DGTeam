@@ -1,0 +1,73 @@
+
+.TaskProfile p {
+  margin: 0 0 0.5em;
+}
+
+.TaskProfileTextareaRow {
+}
+
+.TaskProfileEntry {
+  padding: 0.5em 0;
+}
+
+.TaskProfile textarea, .TaskProfile input {
+  width: 98%;
+  resize: none;
+  height: auto;
+}
+
+.TaskProfile .NowEditing {
+  border: 2px solid blue;
+}
+
+.TaskProfile textarea:disabled, .TaskProfile input:disabled {
+  opacity: 0.8;
+  color: black;
+  background-color: white;
+}
+
+.TaskProfile input {
+  margin-bottom: 0.5em;
+}
+
+.TaskProfile input:disabled {
+  border: 1px solid darkgray;
+}
+
+.TaskProfilePendingChangesDiv {
+  padding: 1em 0 0;
+  display: flex;
+}
+
+.TaskProfilePendingChangesDiv .ui.button {
+  background: none;
+  border: 1px solid blue;
+  color: blue;
+  padding: 0.5em 0.78em;
+}
+
+
+.TaskProfile a, .TaskProfile a:link, .TaskProfile a:visited {
+  color: blue;
+  text-decoration: none;
+  font-size: 90%;
+}
+
+
+.TaskProfileSmallSpace {
+  display: inline-block;
+  min-width: 1em;
+  flex-grow: 1;
+}
+
+.TaskProfileLargeSpace {
+  display: inline-block;
+  min-width: 2em;
+  flex-grow: 4;
+}
+
+.TaskProfileEmptyEntries {
+  font-style: italic;
+  font-size: 90%;
+  color: red;
+}

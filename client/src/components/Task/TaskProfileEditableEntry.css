@@ -1,0 +1,27 @@
+
+.TaskProfileEditableEntry {
+}
+
+.TaskProfileEditableEntry .TaskProfileEditDiv {
+  text-align: left;
+  padding: 0.1em 0.75em 0 0;
+}
+
+.TaskProfileEditableEntry .TaskProfileEditDiv a {
+  float: right;
+}
+
+.TaskProfileEditControls {
+  display:flex;
+  padding: 0 0.2em;
+  margin-top: -0.2em;
+}
+
+.TaskProfileEntryLabel {
+  font-weight: bold;
+  font-size: 90%;
+}
+
+.TaskProfileEditableEntry input:invalid {
+  background: orange;
+}

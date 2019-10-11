@@ -1,0 +1,253 @@
+
+Workflow #1: New user experience
+  New database table: ztm_history
+    id, when, table, tableId
+    Allows entire history to be reassembled using different algorithms
+  Email verification =>
+    Add welcome notification. Required next step: Fill out your profile (link)
+  Login after Signup/ =>
+    User object contains array of notifications
+      Change ztm_users to singular
+      Add table ztm_user_history
+        Have both id and userId
+        field, content, rating, when
+      New tables ztm_notification,  ztm_notification_history
+        notId, userId, who, when, content{, unread}[, action=new|markRead|markUnread|delete|restore]
+      Separate out accountVerified()
+        Pulls from ztm_user, ztm_notification, ztm_profile
+    Inbox shows all nondeleted notifications
+      Search allows you to select all older than N days or a date range???
+  Click link => Profile learning module appears
+    User goes through a tutorial where he fills out profile during course
+    New tables ztm_profile, ztm_profile_history, ztm_assess, ztm_assess_history
+      profile: id, profileId, userId, field, content, when[, action=new|update|delete]
+        field name must be one from a hardcoded list or it is treated as other - default=other
+      assess: id, profileId, userId, field, justification, rating(combo pos/neg, wt, confid: -100/10), when[, action=new|update|delete]
+        [Add/Change] Assessment button, Remove My Assessment button appears in change ui
+      By default, each profile entry shows entry and summary of assessments
+      Under each profile entry, can show currently active assessments
+      When assessments show, can show assessment history
+    Two sections: identity and relevant information
+    Add Information button adds a mini form with an Add button, drop down for type, text entry box
+      Type of information (menu: eg, social media id, website, education)
+
+UI for profile tutorial
+  Vertical scroll, one section at a time highlighted and scrolled into view.
+    Typically, first an explanation, which then hides, and user fills something out
+    Maybe tutorial text only shows in tutorial mode.
+    Normal mode just shows ? With shorter help text
+    Maybe shorter help text can have a More button that brings up tutorial text?
+  Title: Tutorial A.1 - Setting up your profile
+  Introduction:
+    Every member of THISORG has a profile. Etc
+  Your identity:
+    Automatically filled in first, last, email, password
+    You can change these by...
+    Also, legal full name, preferred nickname, other nicknames
+    Then, add websites and other urls
+    Then, social media accounts (pick from list, then enter string (id or url))
+  Then, other relevant information
+
+Top-left corner
+  Logo
+  Headshot, user_name, downarrow (icon: triangle down)
+    Logout
+
+Left column
+  My Profile (**%)
+  My Level (n,**%)
+  My Trustworthiness (n,m,**%)
+  My Rewards (n,**%)
+Center column
+  Inbox
+    Menu bar
+      Back (if/a)
+      Filter/search
+      Undo button (if/a) (icon: undo)
+      delete (if/a) (icon: recycle, trash, delete)
+      More...
+        advanced search (allows search on deleted items except ads)
+        mark as read (if/a) (icon: check*)
+      Don't need:
+        column headers for sorting (who, subject, date/time)
+        Send Message button (icon: talk, signup, envelope, pencil square)
+          maybe have a in-context messaging feature scattered around ui
+        archive (icon: archive)
+        tag (icon: tag)
+        favorite (icon: heart)
+    Stream of intermixed, all open on click, can comment (adds you to conversation), can drop yourself from notifications about conversation:
+      Notifications  (who, subject, when)
+      Messages
+      News
+      Ads (complete, taller than one line)
+    Each has icons on left to select, like gmail
+  Learn
+    Courses in process
+    Suggested next courses
+    Search for courses
+    Courses completed
+    About the Learning Center
+  Evidence (icon: detective, find, write)
+    My active profiles
+    Suggested profiles
+    Search for profiles
+  Judge
+    My active subjects
+    Suggested subjects
+    Search for subjects
+  Search
+    Search box
+    Advanced search link or switch
+More
+  About
+  Tour
+  Help
+
+Send Message
+  To (like email, but no cc or bcc)
+  Subject
+  Content
+  (at end, takes you to Inbox where message sent notification will appear)
+
+Commenting how should ui work?
+
+Book title candidates:
+  Prioritizing Trustworthiness ****
+  Prioritizing Trust ****
+  Rewarding Trust ***
+  Earning Trust **
+
+Site name candidates:
+  Elevating Trust ****  (domain acquired: org and com)
+  Trust Builders (org is 1588)
+  Trust Focus (org acquired)
+  Trust Crowd (.Org acquired)
+  Being Good Is Cool  (domain acquired: org and com)
+  Trust Rewards **** (.Org acquired, .Com is an empty website)
+  Cool To Be Good (.Org acquired, .Com owned by squatter)
+  Good is Cool  (.Org acquired, .Com owned by squatter)
+  Trust Judgments *** (domain acquired: org and com)
+  Rewarding Trust *** (domain acquired: org and com)
+  Trust Network (.Org available, min offer 250)
+  Trust Judges
+  Trust Winners * (domain acquired: org and com)
+  Winning Trust ** (.Org acquired, .Com owned by squatter)
+  TrustPays  (org taken by crime stopper site)
+  Earning Trust ** (.Org acquired, .Com is an investment firm)
+  Trust.who *** (domain owned by someone, not used)
+  Trust Guardians ** (org and com taken by someone in Mexico)
+  TrustWorks.org (owned and actively used)
+
+
+Headpin:
+  Web journalism, attract viewership because of being trustworthy
+  college students rating trustworthiness of professors and the school itself
+
+How to bootstrap grassroots enthusiasm?
+  Go first to extended personal network for donations mainly for liberal arts part-time
+    to enter data and judgments, leveraged by pyramid elements for being early contributor
+    and or high level contributor
+  Focus on LSJU initially to build cachet?
+  Bootstrap via journalism professors and social media?
+  Also appeal to crowdfunding?
+    Crowdfunding both raises money and awareness
+
+
+Open issues:
+
+Closed issues:
+Q Forms of revenue?
+  A Donations, ads, entities paying for priority evaluations, certification icon, high-volume Apis,
+    premium memberships for people and orgs that allow multiple representatives, with org training,
+    notifies you of trustworthiness events on you or selected others.
+    Some organizations will want access to trustworthiness profiles, such as lenders or employers. Can this be monetized?
+  A Certification requires manual review by high-level team member. Fee puts priority on request.
+  A Api access allows free for limited amount. Higher volume requires $.
+Q Rewards: points? If so, how to cash in?
+  A Exchange rate money-to-points.
+  A Variable over time. Set by leadership with goal such as top 0.01% efficient people get about $50/hr.
+  A Usually goes up down due to improved tools that increase productivity of team members.
+  A Can only cash in after surpassing particular round number goals, thereby motivating people
+    to put in a little extra time to cross thresholds.
+  A Lessons teach you how to be more efficient. Gain some points from lessons.
+  A Very well advertised that incentives are set to improve effectiveness of the organization
+    and thereby promote trustworthiness in society
+Q Judgments at section level?
+  A No! Judgments only at the entity level.
+Q Can individual judgments be judged?
+  A Everything but entities can receive ratings (ranked comments?) about indicate (un)trustworthiness, confidence, weight, justification
+Q What about judgments on judgments of judgments, etc?
+  A No, just more ranked comments on same item.
+Q How to deal with situation that someone creates a profile for an entity and then the entity joins?
+  A Each item has an author.
+  A Items created by subject get special styling.
+  A Items can be sorted and filtered. Eg subject-only items, sort by rank score.
+Q Allow people to offer a monetary reward for adding info or judging a particular entity?
+  A Yes, works like contract bidding sites.
+  A Rewards based on ranking score.
+  A Full transparency about who is working on what.
+Q How will notifications work?
+  A Everyone who participates in a given profile gets notified of any changes via inbox
+  A People can request notifications for certain entities or search formulas (includes tags)
+Q How about when a profile is changed?
+  A Notifications to all contributors repeated until old contributions updated
+Q What about older judgments and ranked comments potentially obsolete by newer info?
+  A Down weighted by (sum of ranked comments then) divided by (now)
+
+Entity (@teamId)'s profile
+  Array of sections (note: different sections and items for person vs org)
+    Array of Items (an entry into a profile, a judgment)
+      Content - text with embedded urls?
+      Content metadata (who, when)
+      Array of ranked comments?
+        Rating ((un)trustworthiness indication, confidence, weight)
+        Justification
+        Share with a set of #tags that other people follow or @teamid
+        Judgment metadata
+  Array of
+    Judgment (score, confidence)
+    Justification
+    Share with a set of #tags that other people follow or @teamid
+    Judgment metadata
+  Composite score, confidence, other statistics
+
+user / entity { // stored in entity tables?
+  id
+  Identity
+    isOrganization
+      Primary contact email (must be a person, must have an account)
+      User emails who have editing privileges (must be a person, must have an account)
+        Admin privileges?
+      Org name
+  profile {
+    website and other urls []
+    social [] - subfields depending on platform
+    info [{type, content}]
+      general background info (for people, bio, education, employment history, activities, publications, awards)
+      current work, activities, affiliations []
+      other relevant information that might impact this subject's trustworthiness
+        actions or activities that show trustworthiness or lack thereof
+      for publications [{ // books, audio, visual, knews, magazines, podcasts, etc
+        title
+        authors []
+        publisher
+        year
+        urls []
+        summary
+        notes
+      }]
+  }
+  judgmentsBy []
+  judgmentsOn []
+  researchBy []
+  researchOn []
+  commentsBy []
+  commentsOn []
+  trustworthiness {
+    score
+    confidence
+  }
+  level
+  training
+  political profile?
+}

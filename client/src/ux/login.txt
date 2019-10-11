@@ -1,0 +1,16 @@
+Login
+  <message> <error:boolean>
+  Email
+  Password
+  Forgot my password (link)
+  Not a member? Click here to signup (link)
+ForgotPassword / Forgot my password
+  Email
+  Send email to reset my password button
+  Return to login screen link
+/team/resetpassword?token=... redirect to /team with cookie go=ResetPasswordSuccess or ResetPasswordFailure
+ResetPassword
+  Reset password for <email>:
+  Password (with password strength indicator) Show/Hide password (Component?)
+  password requirements
+  Reset password button <disable>

@@ -1,0 +1,99 @@
+
+/* This div provides a inner-nested vertical flex container
+    within a higher level vertical flex container. This is only possible
+    when the inner vertical flex container is absolutely positioned.
+    Note that this element's parent has position:relative. */
+.TaskWizard {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.TaskWizard > * {
+  flex-grow: 0;
+}
+
+.TaskTitle, .TaskStepTitle {
+  border-bottom: 1px solid rgba(34,36,38,.075);
+}
+
+.TaskStepTitle {
+  padding: 0 1em;
+}
+
+/* This div is the expandable child of the above vertical flex container */
+.TaskWizard .TaskStepContent {
+  flex: 1;
+  overflow: auto;
+  padding: 1em;
+  clear: both;
+}
+
+.TaskNavigation {
+  border-top: 1px solid rgba(34,36,38,.075);
+}
+
+.TaskNavigationButtons {
+  font-size: 1.1em;
+  font-weight: bold;
+  line-height: 2.5;
+  display: flex;
+}
+
+.TaskNavigationButton.first, .TaskNavigationButton.last {
+  flex-grow: 0;
+}
+.TaskNavigationButton.prev, .TaskNavigationButton.next {
+  flex-grow: 1;
+  text-align: center;
+}
+
+.TaskNavigationButtons > * {
+  display: inline-block;
+}
+
+.StepTitlePage {
+  float: right;
+  font-size: 0.8em;
+}
+
+.TaskWizard h1 {
+  font-size: 1.4em;
+  text-align: center;
+  line-height: 2.5;
+}
+
+.TaskWizard h2 {
+  font-size: 1.25em;
+  margin-top: .25em;
+  font-style: italic;
+  line-height: 2;
+}
+
+.TaskWizard h3 {
+  font-size: 1.1em;
+  margin-top: .25em;
+}
+
+.TaskWizardCompletion .TaskNavigationButton.last .ui.button {
+  color: #606;
+  background: #f0e1f2 none;
+  font-weight: bold;
+  border: 1px solid #606;
+}
+
+.TaskWizard .TaskWizardCongratulations {
+  color: #060;
+  text-align: center;
+  margin-top: 0.75em;
+}
+
+.TaskWizardComplete {
+  margin-bottom: 3em;
+  text-align: center;
+}

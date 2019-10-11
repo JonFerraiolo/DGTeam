@@ -1,0 +1,59 @@
+
+.Tasks {
+  text-align: left;
+  padding: 1em 0.2em 0.5em 0.5em;
+}
+
+.Tasks p {
+  margin: 0.5em 0;
+  line-height: 1.4285em;
+}
+
+.TasksCurrentLevel {
+  font-weight: bold;
+  color: #a4a;
+}
+
+.TasksNextLevel {
+  font-style: italic;
+  color: #a4a;
+}
+
+.Tasks ul {
+  padding-left: 1.5em;
+}
+
+.TasksItemFuture, .TasksItemCurrent {
+  list-style-type: circle;
+}
+
+.TasksItemCompleted a, .TasksItemCompleted a:link, .TasksItemCompleted a:visited {
+  color: black;
+}
+
+.TasksItemCurrent a, .TasksItemCurrent a:link, .TasksItemCurrent a:visited {
+  font-weight: bold;
+  font-size: 115%;
+  color: #a4a;
+  text-decoration: none;
+}
+
+.TasksThisIsCurrent {
+  font-style: italic;
+  font-size: 90%;
+  color: #681168;
+  text-align: center;
+  white-space: nowrap;
+  float: right;
+  margin: -0.10em 1em 0 1em;
+}
+
+.TasksThisIsCurrent:before {
+  padding: 0 0 0 0.2em;
+  content: "\261c";
+  font-size: 300%;
+  font-weight: normal;
+  font-style: normal;
+  /*vertical-align: -10%;*/
+  display: block;
+}

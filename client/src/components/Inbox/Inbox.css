@@ -1,0 +1,25 @@
+
+.Inbox .ui.feed .label .ui.checkbox input {
+  background-color: yellow;
+}
+
+.Inbox .ui.feed>.event>.label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Inbox .InboxMenu .ui.menu .InboxSelectAll.item {
+  margin: 0 2em 0 0;
+  padding-left: 0;
+  padding-right: 0;
+  width: 2.5em;
+}
+
+.Inbox .InboxMenu .InboxSelectAll .ui.checkbox {
+  padding: 0 0.5em;
+}
+
+.Inbox .ui.feed>.event>.label.InboxSelect .ui.checkbox {
+  padding: 0 0.5em;
+}

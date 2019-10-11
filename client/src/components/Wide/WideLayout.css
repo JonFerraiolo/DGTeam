@@ -1,0 +1,25 @@
+
+.WideLayout {
+  max-width: 50em;
+  height: 100%;
+  margin: auto;
+}
+
+.WideLayoutColumns {
+  display: flex;
+  height: 100%;
+}
+
+.WideLayoutColumns > * {
+  flex-grow: 0;
+  vertical-align: top;
+}
+
+.WideLayout .WideLayoutColumns .WideCenter {
+  flex-grow: 1;
+}
+
+.WideLayoutColumns {
+  border: 2px solid rgba(45,104,196,1); /*trueblue: #2d68c4;*/
+  border-radius: 4px;
+}

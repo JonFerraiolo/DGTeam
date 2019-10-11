@@ -1,0 +1,38 @@
+
+.TaskConfirmOath {
+  padding-bottom: 3em;
+}
+
+.TaskConfirmOathText {
+  margin: 1.25em 2em 2em;
+  font-size: 120%;
+  font-weight: bold;
+  padding: 1em 2em;
+  border: 3px solid darkviolet;
+  border-radius: 6px;
+  box-shadow: 1px 2px 1px #979;
+}
+
+.TaskConfirmOathButtonRow {
+  display: flex;
+}
+
+.TaskConfirmOathButtonYes.ui.button, .TaskConfirmOathButtonNo.ui.button {
+  flex-grow: 0;
+  font-size: 110%;
+  font-weight: bold;
+}
+
+.TaskConfirmOathButtonYes.ui.button {
+  background: #e0c1e2 none; /* #e0e1e2 none;*/
+  border: 1px solid darkviolet;
+}
+
+.TaskConfirmOathButtonNo.ui.button {
+  background: #d0d1d2 none;
+  border: 1px solid black;
+}
+
+.TaskConfirmOathButtonRow .spacer {
+  flex-grow: 1;
+}

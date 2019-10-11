@@ -1,0 +1,134 @@
+
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* ************ Customizations ************ */
+
+html, body, #root, .App {
+  width: 100%;
+  height: 100%;
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.verticalformcontainer.ui.text.container {
+  margin-top: 1.5em;
+  max-width: 23em !important;
+}
+
+.verticalformtopmessage.ui.message {
+  margin-bottom: 1.5em;
+}
+
+.verticalformbottommessage.ui.message {
+  margin-top: 2em;
+  text-align: left;
+}
+
+.verticalformbottommessage.ui.message .innerBlock {
+  display: inline-block;
+}
+
+.verticalformcontrol {
+  margin: 0.6em 0;
+}
+
+.verticalformbuttonrow {
+  margin-top: 3em;
+}
+
+.ui.input input:invalid,
+.verticalformcontainer .checkboxDivError,
+.verticalformcontainer .ui.verticalformcontrol.emailError {
+  border: 2px dashed red;
+  background: #fee;
+}
+
+.showPasswordRow {
+  text-align: right;
+  font-size: 80%;
+  margin-top: -.5em;
+}
+
+.passwordRules {
+  text-align: left;
+  font-size: 70%;
+  margin-top: .5em;
+}
+
+.signupVerificationEmailSent {
+  text-align: left;
+}
+
+.checkboxlabelrow {
+  text-align: left;
+  display: flex;
+}
+.checkboxlabelrow * {
+  display: inline-block;
+  vertical-align: top;
+
+}
+.checkboxlabelrow input[type='checkbox'] {
+  -webkit-appearance:none;
+  appearance: none;
+  width:24px;
+  height:24px;
+  background:white;
+  border-radius:2px;
+  border:2px solid #555;
+  margin: 0.25em 1em 0 0.25em;
+  flex: 0 0 24px;
+}
+.checkboxlabelrow input[type='checkbox']:checked {
+    background: #ffffff;
+    font-size: 110%;
+    font-weight: bold;
+    text-align: center;
+}
+
+.checkboxlabelrow input[type='checkbox']:checked:after {
+    content: "\2714";
+  }
+
+ul.AppTaskList li {
+  font-weight: bold;
+}
+
+.AppTaskPressmeHighlight,
+.AppTaskPressmeHighlight:link,
+.AppTaskPressmeHighlight:visited,
+.AppTaskPressmeHighlight:hover {
+  font-size: 110%;
+  font-weight: bold;
+  font-style: italic;
+  text-decoration: underline;
+  color: indigo;
+}
+
+.AppTaskPressmeHighlight:hover {
+  cursor: pointer;
+}

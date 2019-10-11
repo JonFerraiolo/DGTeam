@@ -1,0 +1,190 @@
+
+
+external file profileCategories.js
+array of
+  category
+  microjudge bool
+  identityCategory bool (must be at front)
+  values array
+    type (regex, jsonschema?)
+    desc
+Server logic determine nSteps for TaskWizletProfile and other wizlets
+getUserObject returns array TaskWizletTypes=[{type:,nSteps:}] and profileCategories
+
+ui
+New identity wizard, thereafter have to click an Edit button
+
+Wizard
+  Explain profiles and how the wizard works
+  Explain that we start with your / the person's / the organization's identity
+  Then, one screen each for names, birth, Internet identities
+  Explain that now we other information pertinent to the trustworthiness platform,
+  particularly these three things ...
+  Then, one screen each for each potential category. How to make this dynamic?
+  Then, a review and summary page, with encouragement to go back to previous pages to make updates.
+  Need a flag in db about whether profile status: not_started, in_process, completed
+
+      Person
+Identity:
+  Public names: vertical list of text boxes, with legal name checkbox, controls to reorder delete, add before after appear with focus
+    At least one is required
+    Also known as: list, with a check box if an entry is a legal name as would appear on DL, passport or tax return
+  Birth:
+    Date of birth:
+    Place of birth: Country, Province/State, City
+  Internet and social media identities:
+    list with type, ID, with controls to reorder
+Other information that is pertinent to:
+  Uniqueness: Helps to distinguish this person's identity versus others with similar names
+  Discoverability: Helps to discover this person wherever and whenever the person interacts with the public world
+  Trustworthiness: Provides evidence, positive or negative, that reflects on the person's trustworthiness
+  list with category, then n fields depending on the category.
+    if you change category, warning about existing values usually being discarded
+  Reset button when editing an existing entry
+  Each commit subject to review by higher level members, pending changes styled differently
+
+order b: default=rankingweight,  a-z
+Include search box.
+
+Comments, rankings scores go underneath the entry,
+usually hidden except for summary valueIndex
+when showing,
+textarea with right side button for ranking score
+
+list of items:
+  Click the pencil icon on the right of the item to edit, move or delete an entry.
+  Add New Entry hyperlink at bottom left
+  Each entry has a pencil icon on right. Click it to put edit focus on textarea with hyperlinks below OK/Save, Move Up, Move Down, Revert, Remove
+
+new item:
+  Category: button /popup to pick category
+  Growing textarea with maxheight
+  Trustworthiness micro-judgment bitton/popup
+    allows for positive or negative trustworthiness micro judgment plus associated confidence value
+
+existing item
+  only author can change
+  different styling for your comments versus those from other people
+  text with following on right:
+  Overall: icon, value/confidence
+  Author: icon, value/confidence
+  You: icon, value/confidence
+  Show comments and micro-judgments hyperlink
+
+Each comment/micro-judgment is subject to judgment.
+Submissions from low-ranking members require evaluation
+
+
+api
+  g(s)etprofiledata
+  {
+    subjectId
+    categories: [{
+      category ENUM
+      categoryData {
+        possible category-specific name-value pairs
+        entries[]
+      }
+    }]
+
+db tables
+
+ue_ztm_user
+  Add isAdmin ENUM true/false
+  Add profileId (has to be unique)
+
+ue_ztm_org
+  id (somehow unique vs users?)
+  Add profileId
+  officialName (formal/legal name)
+  officialEmail (for correspondence about this site, recommend this as alias that always cc's a particular officer title)
+  officialOther (address, url, email, phone, etc)
+
+ue_ztm_profile_items
+  id (for each separate value -  may never be used)
+  profileId
+  userId
+  category (abbreviation) ENUM
+    name (special=legal)
+    permission  (orgs only, for acting on behalf, values=userId,edit|admin,)
+    bio, education, employment (history), activity, publication, award, honor
+    url, social
+    dob
+    pob (place of birth)
+    other
+  entryIndex (0,1,2,etc)
+  entry
+  when
+
+ue_ztm_microjudgment
+  id
+  itemId
+  comment
+  score
+  confidence
+  when
+  reviewUserid
+  reviewComment
+  reviewWeight
+  reviewWhen
+
+
+
+Entity (@teamId)'s profile
+  Array of sections (note: different sections and items for person vs org)
+    Array of Items (an entry into a profile, a judgment)
+      Content - text with embedded urls?
+      Content metadata (who, when)
+      Array of ranked comments?
+        Rating ((un)trustworthiness indication, confidence, weight)
+        Justification
+        Share with a set of #tags that other people follow or @teamid
+        Judgment metadata
+  Array of
+    Judgment (score, confidence)
+    Justification
+    Share with a set of #tags that other people follow or @teamid
+    Judgment metadata
+  Composite score, confidence, other statistics
+
+user / entity { // stored in entity tables?
+  id
+  Identity
+    isOrganization
+      Primary contact email (must be a person, must have an account)
+      User emails who have editing privileges (must be a person, must have an account)
+        Admin privileges?
+      Org name
+  profile {
+    website and other urls []
+    social [] - subfields depending on platform
+    info [{type, content}]
+      general background info (for people, bio, education, employment history, activities, publications, awards)
+      current work, activities, affiliations []
+      other relevant information that might impact this subject's trustworthiness
+        actions or activities that show trustworthiness or lack thereof
+      for publications [{ // books, audio, visual, knews, magazines, podcasts, etc
+        title
+        authors []
+        publisher
+        year
+        urls []
+        summary
+        notes
+      }]
+  }
+  judgmentsBy []
+  judgmentsOn []
+  researchBy []
+  researchOn []
+  commentsBy []
+  commentsOn []
+  trustworthiness {
+    score
+    confidence
+  }
+  level
+  training
+  political profile?
+}
+https://acorn.tv/docmartin/series8

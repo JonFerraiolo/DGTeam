@@ -1,0 +1,45 @@
+
+nomenclature
+tasks => assignments, mission, program, schedule, modules, labors, deeds
+task => assignment, pursuit, quest, module, unit, element, item, segment, deed, feat, achievement, exploit, adventure, act, step
+step => step
+
+task => step, as in a ladder metaphor, you have to complete these three steps to reach the next level
+step => page
+
+First login: go to Inbox with progress at 1, 0, -1. Since step<nSteps-1, and level==1,
+  Show Inbox with one message closed, then animate grow to open state
+Complete task: go to Inbox
+
+Inbox
+
+api: getinbox
+  initially, no extra db TABLE
+  returns userObject
+
+localStorage: teamAppInboxState
+  openMessageId: id or NULL
+  level, task
+
+if openMessageId
+  message
+    header
+      when, delete, minimize / maximize
+      subject
+    body
+  n other messages in Inbox
+  if progress > inboxlevel,
+    initial screen shows congratulations on completing level n: all tasks green Completed
+    animate shrink to nothing, then animate grow next level assignments, all tasks initially unmarked
+    Then highlight first task as the next step
+  else if task > inboxtask,
+    initial screen shows all tasks green Completed
+    Then animate unhighlight previous task and animate highlight of new task
+  else show currently open level-tasks
+
+else
+  n messages
+    header
+      when, delete, minimize / maximize
+      subject
+  The message with current assignments has extra line on top that says Your current quest

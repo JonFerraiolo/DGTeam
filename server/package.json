@@ -1,0 +1,35 @@
+{
+  "name": "DGTeamserver",
+  "version": "0.0.1",
+  "description": "Democracy Guardians team applications",
+  "author": "Democracy Guardians",
+  "scripts": {
+    "clean": "rm -rf node_modules npm-debug.log client/tools_built.js client/tools_uncompressed.js client/tools.css client/tools.css.map",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DemocracyGuardians/DGTeam"
+  },
+  "bugs": {
+    "url": "https://github.com/DemocracyGuardians/DGTeam/issues"
+  },
+  "dependencies": {
+    "body-parser": "1.17.x",
+    "cookie": "0.3.x",
+    "debug": "^3.0.1",
+    "eval": "^0.1.2",
+    "express": "4.15.x",
+    "express-mysql-session": "^1.2.2",
+    "express-session": "^1.15.5",
+    "less-middleware": "2.2.x",
+    "mandrill-api": "^1.0.45",
+    "mysql": "2.13.x",
+    "passport": "0.3.x",
+    "passport-local": "1.0.x",
+    "request": "2.81.x",
+    "socket.io": "2.0.x"
+  },
+  "devDependencies": {},
+  "private": false
+}

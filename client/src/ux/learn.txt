@@ -1,0 +1,34 @@
+
+Learning Center
+
+Curriculum
+  How the site works
+  Oaths
+  Trustworthiness
+  Profiles
+  Reviewing Profiles
+  Judging
+  Reviewing judgments
+  Rewards
+
+Presentation approach:
+  Cartoon graphics
+  Read about a concept
+  Handful of multiple choice questions to help internalize lesson
+  Repeat for subtopics
+  At end, a test, you must get everything right to pass
+  Several times more questions than test shows, randomly selected
+
+Check your understanding
+  True/false
+    Please answer the following true/false questions
+    "Check my answers" button at bottom, disabled until all questions are answered
+
+
+truefalse layout
+                        TRUE  FALSE(small size)    
+1. question                o    o     x
+   wrap
+
+display:grid, grid-template-columns: auto 1fr auto auto auto
+For all cells except col 3 and 4, grid-row-end: span 2;

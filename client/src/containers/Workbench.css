@@ -1,0 +1,22 @@
+
+.Workbench {
+  width: 100%;
+  height: 100%;
+}
+
+.SecondaryMenu {
+  background: dimgray;
+  padding-left: 1em;
+}
+
+.SecondaryMenu .ui.icon.menu .item {
+  color: white;
+}
+
+.SecondaryMenu .ui.menu .item>i.icon {
+  margin-right: 0em;
+}
+
+.SecondaryMenu .ui.secondary.menu .item {
+  padding: .78571429em .4em;
+}

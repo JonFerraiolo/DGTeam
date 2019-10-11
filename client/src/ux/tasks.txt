@@ -1,0 +1,45 @@
+
+Tasks/
+  One task file per version. Latest in ./latest.js. Previous in old/{version#}.
+    array of levels
+      index into array is level number. Level 0 is ignored.
+      array of tasks, eg { id, type:'lesson', subject:'Trustworthiness', [actions:]}, { type:'evidence', subject:userId}
+    mappingFunc: maps task progress version <n-1> to this version <n>
+      At first, mapping func forces going back to very beginning
+db
+  progress
+    id
+    userId
+    version
+    level
+    task
+    step
+    modified
+apis
+  updateprogress:
+    version error if doesn't match latest
+    increment step
+    if step>=nsteps
+      task++
+      step=0
+      if task>=ntasks
+        level++
+        task=0
+        step=0
+    update table progress level, task, step
+    returns user={account:{},progress:{}}
+Upon first login:
+  if no entry in progress, insert 1,0,0
+  returns user={account:{},progress:{}}
+On completing a screen:
+  updateprogress {level, task, step} just completed, returns user={account:{},progress:{}} for next step,
+  verify server and client info match
+  If finished task, go to Inbox
+  Maintain Inbox state, screenIndex, level, task in local storage so we can return to taskmessage
+  localStorage.setItem('myCat', 'Tom');
+  var cat = localStorage.getItem("myCat");
+  localStorage.removeItem("myCat");??? Still messy
+Inbox always puts current task as first message, styled specially
+  If staying on the same level, when going to Inbox, animate from Inbox to Inbox message
+Change Inbox ui
+  Messages open in place full height (with line at bottom saying n other messages)

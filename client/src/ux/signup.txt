@@ -1,0 +1,52 @@
+
+/team setcookie:go=login
+/team setcookie:go=signup
+SignupWizard / WizardOuter
+    WizardPane/<startPane>, <bodyPanes>, <endPane>/<[{title, subtitle, content, error:name, message }]>
+      no startPane, bodyPanes follow
+      <title>Sign up as a Democracy Guardian
+      <subtitle>By signing up, you become a member of the Democracy Guardians team,
+      which allows you to help save and strengthen democracy.
+    Identity (Pane <i> of <n>)
+      <message> <error:boolean>
+      Full name
+      Email
+      Password (with password strength indicator) Show/Hide password
+      password requirements
+      [Next]
+    Agreement
+      <message> <error:boolean>
+      Short explanation
+      Actual agreement
+      Agree checkbox
+      <message> <error:boolean>
+      [Prev]  [Next] [Finish]
+    <endPane>
+      Verification email sent to... Check your email and follow instructions found there.
+/team/signupVerification?token=... redirect to /team with cookie go=loginverifysuccess or loginverifyfailure
+LoginVerificationError
+  <head>
+  <body>
+  Email
+  Resend verification email button
+ProfileWizard / WizardOuter
+  <startPane>
+    <title>Complete your profile
+    <content>Longer explanation
+  <bodyPanes:[{title, subtitle, content}]>
+    <title>Complete your profile
+    <subtitle>We encourage members to take the time to do a thorough and complete job
+    filling out their profiles before engaging in DG contributing to DG.
+    A complete profile helps other members to assign you a higher trustworthiness score.
+    Higher trustworthiness scores mean your contributions such as Judgments will have a greater weight.
+    Personal history
+      Birth, places of residence, education, marriages, children, employment, hobbies
+      (ok to refer to information about you on other sites)
+    Public identities
+      List of emails, urls, social media IDs where you offer opinions or comments about the world
+      in which we live.
+      Software provides a list of social media services plus an other option
+    Affiliations
+      List all
+    Questionnaire
+      16 questions

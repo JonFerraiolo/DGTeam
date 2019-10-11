@@ -1,0 +1,70 @@
+
+.TaskMultipleChoice {
+  margin-bottom: 2.5em;
+}
+
+.TaskMultipleChoiceQuestions {
+  margin-bottom: 1.5em;
+  padding: 0 .5em;
+  border-top: 1px solid rgba(34,36,38,.075);
+}
+
+.TaskMultipleChoiceQuestions > * {
+  padding: .6em 0 0.2em;
+}
+
+.TaskMultipleChoiceQuestionText {
+  display: flex;
+}
+
+.TaskMultipleChoiceQuestionText > * {
+  flex-grow: 0;
+}
+
+.TaskMultipleChoiceQuestionChoices {
+  padding-left: 1em;
+}
+
+.TaskMultipleChoiceQuestionText .TaskMultipleChoiceQuestion {
+  flex-grow: 1;
+  padding-left: 0.6em;
+  padding-right: 1em;
+}
+
+.TaskMultipleChoiceChoice {
+  padding: 0.3em 0;
+}
+
+.TaskMultipleChoiceChoice .checkbox {
+  margin-top: 0.12em;
+}
+
+.TaskMultipleChoiceChoiceLabel {
+  padding: 0 0.3em 0 0.75em;
+}
+
+.TaskMultipleChoiceScore {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
+
+.TaskMultipleChoiceScore .circle.check {
+  color: green;
+}
+
+.TaskMultipleChoiceScore .circle.remove {
+  color: red;
+}
+
+.TaskMultipleChoiceChoice {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+}
+
+.TaskMultipleChoiceButtonRow {
+  text-align: center;
+}
+
+.TaskMultipleChoiceButtonRow .Congrats .header {
+  color: green;
+}
